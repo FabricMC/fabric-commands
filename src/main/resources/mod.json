@@ -1,0 +1,8 @@
+{
+	"id": "fabric-commands",
+	"group": "net.fabricmc",
+	"version": "0.1.0",
+	"mixins": {
+		"common": "fabric.commands.mixin.common.json"
+	}
+}
