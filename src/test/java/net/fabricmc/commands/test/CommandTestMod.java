@@ -25,7 +25,6 @@ public class CommandTestMod {
 
 	@Hook(name = "registercommands", before = "", after = "{}")
 	public void registerCommands(RegisterCommandEvent event) {
-		System.out.println("Registering commands");
 		event.getCommandManager().registerCommand(new TestCommand());
 	}
 

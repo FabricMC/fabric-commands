@@ -30,7 +30,6 @@ public abstract class MixinCommandManager implements ICommandManager {
 
 	@Inject(method = "<init>", at = @At("RETURN"))
 	public void constructor(CallbackInfo info) {
-		System.out.println("Calling event");
 		Fabric.getEventBus().publish(new RegisterCommandEvent((CommandManager) (Object) this));
 	}
 
