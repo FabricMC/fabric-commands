@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "net.fabricmc.commands.mixin",
+	"package": "net.fabricmc.commands.mixin.client",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
 		"MixinCommandManager"

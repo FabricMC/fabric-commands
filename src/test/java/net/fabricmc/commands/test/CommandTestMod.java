@@ -14,26 +14,19 @@
  * limitations under the License.
  */
 
-package net.fabricmc.commands.events;
+package net.fabricmc.commands.test;
 
-import net.fabricmc.api.Event;
-import net.minecraft.command.CommandManager;
+import net.fabricmc.api.Hook;
+import net.fabricmc.base.Fabric;
+import net.fabricmc.base.loader.Init;
+import net.fabricmc.commands.events.RegisterCommandEvent;
 
-/**
- * This event is used to register commands
- */
-public class RegisterCommandEvent extends Event {
+public class CommandTestMod {
 
-	private final CommandManager commandManager;
-
-	public RegisterCommandEvent(CommandManager commandManager) {
-		this.commandManager = commandManager;
+	@Hook(name = "registercommands", before = "", after = "{}")
+	public void registerCommands(RegisterCommandEvent event) {
+		System.out.println("Registering commands");
+		event.getCommandManager().registerCommand(new TestCommand());
 	}
 
-	/**
-	 * @return the command manager to register the commands with
-	 */
-	public CommandManager getCommandManager() {
-		return commandManager;
-	}
 }

@@ -14,32 +14,23 @@
  * limitations under the License.
  */
 
-package net.fabricmc.commands.mixin;
+package net.fabricmc.commands.mixin.client;
 
 import net.fabricmc.base.Fabric;
 import net.fabricmc.commands.events.RegisterCommandEvent;
 import net.minecraft.command.CommandManager;
-import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandManager;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Map;
-import java.util.Set;
-
 @Mixin(value = CommandManager.class, remap = false)
 public abstract class MixinCommandManager implements ICommandManager {
 
-	@Shadow
-	public Map<String, ICommand> commandMap;
-	@Shadow
-	public Set<ICommand> commandSet;
-
 	@Inject(method = "<init>", at = @At("RETURN"))
 	public void constructor(CallbackInfo info) {
+		System.out.println("Calling event");
 		Fabric.getEventBus().publish(new RegisterCommandEvent((CommandManager) (Object) this));
 	}
 
