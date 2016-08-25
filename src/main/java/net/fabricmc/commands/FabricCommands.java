@@ -22,7 +22,7 @@ import net.fabricmc.base.loader.Init;
 import net.fabricmc.commands.events.RegisterCommandEvent;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandManager;
-import net.minecraft.command.CommandRegistry;
+import net.minecraft.command.CommandManagerServer;
 import net.minecraft.server.MinecraftServer;
 
 public class FabricCommands {
@@ -37,8 +37,8 @@ public class FabricCommands {
 		MinecraftServer server = Fabric.getSidedHandler().getServerInstance();
 		if (server != null && server.isDedicated()) {
 			Fabric.getEventBus().publish(new RegisterCommandEvent((CommandManager) server.getCommandManager()));
-			if (server.getCommandManager() instanceof CommandRegistry) {
-				CommandBase.a((CommandRegistry) server.getCommandManager());
+			if (server.getCommandManager() instanceof CommandManagerServer) {
+				CommandBase.a((CommandManagerServer) server.getCommandManager());
 			}
 		}
 	}
