@@ -37,7 +37,7 @@ public class TestCommand extends CommandBase {
 
 	@Override
 	public void execute(MinecraftServer minecraftServer, ICommandSender iCommandSender, String[] strings) throws CommandException {
-		iCommandSender.a(new TextComponentString(TextFormat.BLUE + "Hello"));
+		iCommandSender.appendCommandFeedback(new TextComponentString(TextFormat.BLUE + "Hello"));
 	}
 
 	@Override

@@ -38,7 +38,7 @@ public class FabricCommands {
 		if (server != null && server.isDedicated()) {
 			Fabric.getEventBus().publish(new RegisterCommandEvent((CommandManager) server.getCommandManager()));
 			if (server.getCommandManager() instanceof CommandManagerServer) {
-				CommandBase.a((CommandManagerServer) server.getCommandManager());
+				CommandBase.setCommandManager((CommandManagerServer) server.getCommandManager());
 			}
 		}
 	}
