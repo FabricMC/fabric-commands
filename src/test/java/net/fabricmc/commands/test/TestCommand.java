@@ -25,23 +25,31 @@ import net.minecraft.text.TextFormat;
 import net.minecraft.text.impl.TextComponentString;
 
 public class TestCommand extends CommandBase {
+	private final String name;
+	private final TextFormat format;
+
+	public TestCommand(String name, TextFormat format) {
+		this.name = name;
+		this.format = format;
+	}
+
+	@Override
+	public int getMinPermissionLevel() {
+		return 0;
+	}
+
 	@Override
 	public String getName() {
-		return "test";
+		return name;
 	}
 
 	@Override
 	public String getUsage(ICommandSender iCommandSender) {
-		return "test";
+		return name;
 	}
 
 	@Override
 	public void execute(MinecraftServer minecraftServer, ICommandSender iCommandSender, String[] strings) throws CommandException {
-		iCommandSender.appendCommandFeedback(new TextComponentString(TextFormat.BLUE + "Hello"));
-	}
-
-	@Override
-	public int compareTo(ICommand o) {
-		return 0;
+		iCommandSender.appendCommandFeedback(new TextComponentString(format + "Hello"));
 	}
 }

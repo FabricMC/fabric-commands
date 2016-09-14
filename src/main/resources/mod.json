@@ -1,9 +1,10 @@
 {
   "id": "fabric-commands",
   "group": "net.fabricmc",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "mixins": {
-    "client": "fabric.commands.mixin.client.json"
+    "client": "fabric.commands.mixin.client.json",
+    "common": "fabric.commands.mixin.common.json"
   },
   "modClass": "net.fabricmc.commands.FabricCommands"
 }

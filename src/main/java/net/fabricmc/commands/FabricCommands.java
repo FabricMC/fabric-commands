@@ -16,31 +16,25 @@
 
 package net.fabricmc.commands;
 
-import net.fabricmc.api.Hook;
 import net.fabricmc.base.Fabric;
 import net.fabricmc.base.loader.Init;
 import net.fabricmc.commands.events.RegisterCommandEvent;
-import net.minecraft.command.CommandBase;
-import net.minecraft.command.CommandManager;
-import net.minecraft.command.CommandManagerServer;
-import net.minecraft.server.MinecraftServer;
 
 public class FabricCommands {
+	private static CommandManagerClient commandManagerClient;
+
+	public static CommandManagerClient getClientManager() {
+		if (commandManagerClient == null) {
+			commandManagerClient = new CommandManagerClient();
+			Fabric.getEventBus().publish(new RegisterCommandEvent.Client(commandManagerClient));
+		}
+		return commandManagerClient;
+	}
 
 	@Init
 	public void init() {
 		Fabric.getLoadingBus().subscribe(this);
-	}
-
-	@Hook(name = "fabric-commands:modsInitialized", before = {}, after = "fabric:modsInitialized")
-	public void postInit() {
-		MinecraftServer server = Fabric.getSidedHandler().getServerInstance();
-		if (server != null && server.isDedicated()) {
-			Fabric.getEventBus().publish(new RegisterCommandEvent((CommandManager) server.getCommandManager()));
-			if (server.getCommandManager() instanceof CommandManagerServer) {
-				CommandBase.setCommandManager((CommandManagerServer) server.getCommandManager());
-			}
-		}
+		//Fabric.getEventBus().subscribe(new CommandTestMod());
 	}
 
 }

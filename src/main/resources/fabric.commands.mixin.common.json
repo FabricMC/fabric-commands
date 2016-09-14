@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "net.fabricmc.commands.mixin.client",
+	"package": "net.fabricmc.commands.mixin.common",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
-		"MixinEntityPlayerClient"
+		"MixinCommandManagerServer"
 	],
 	"injectors": {
 		"defaultRequire": 1
