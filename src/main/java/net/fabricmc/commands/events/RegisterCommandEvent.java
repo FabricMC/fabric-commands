@@ -22,30 +22,20 @@ import net.minecraft.command.CommandManager;
 /**
  * This event is used to register commands
  */
-public abstract class RegisterCommandEvent extends Event {
-
-	private final CommandManager commandManager;
-
-	public RegisterCommandEvent(CommandManager commandManager) {
-		this.commandManager = commandManager;
-	}
+public abstract class RegisterCommandEvent extends Event.Event1<CommandManager> {
 
 	/**
 	 * @return the command manager to register the commands with
 	 */
-	public CommandManager getCommandManager() {
-		return commandManager;
-	}
+//	public CommandManager getCommandManager() {
+//		return handlers.get(0).;
+//	}
 
 	public static class Client extends RegisterCommandEvent {
-		public Client(CommandManager commandManager) {
-			super(commandManager);
-		}
+
 	}
 
 	public static class Server extends RegisterCommandEvent {
-		public Server(CommandManager commandManager) {
-			super(commandManager);
-		}
+
 	}
 }

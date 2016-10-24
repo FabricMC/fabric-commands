@@ -17,6 +17,7 @@
 package net.fabricmc.commands.mixin.common;
 
 import net.fabricmc.base.Fabric;
+import net.fabricmc.commands.FabricCommands;
 import net.fabricmc.commands.events.RegisterCommandEvent;
 import net.minecraft.command.CommandManager;
 import net.minecraft.command.CommandManagerServer;
@@ -31,7 +32,7 @@ public abstract class MixinCommandManagerServer implements ICommandManager {
 
 	@Inject(method = "<init>", at = @At("RETURN"))
 	public void constructor(CallbackInfo info) {
-		Fabric.getEventBus().publish(new RegisterCommandEvent.Server((CommandManager) (Object) this));
+		FabricCommands.serverCommandEvent.post((CommandManager) (Object) this);
 	}
 
 }

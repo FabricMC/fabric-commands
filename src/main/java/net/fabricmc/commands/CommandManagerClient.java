@@ -16,7 +16,7 @@
 
 package net.fabricmc.commands;
 
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.MinecraftGame;
 import net.minecraft.command.CommandManager;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
@@ -38,6 +38,6 @@ public class CommandManagerClient extends CommandManager {
 
     @Override
     public MinecraftServer getServer() {
-        return Minecraft.getInstance().getServer();
+        return MinecraftGame.getInstance().getServer();
     }
 }

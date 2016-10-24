@@ -16,25 +16,29 @@
 
 package net.fabricmc.commands;
 
-import net.fabricmc.base.Fabric;
 import net.fabricmc.base.loader.Init;
 import net.fabricmc.commands.events.RegisterCommandEvent;
+import net.minecraft.command.CommandManager;
+
+import java.util.function.Consumer;
 
 public class FabricCommands {
 	private static CommandManagerClient commandManagerClient;
 
+	public static RegisterCommandEvent.Client clientCommandEvent = new RegisterCommandEvent.Client();
+	public static RegisterCommandEvent.Server serverCommandEvent = new RegisterCommandEvent.Server();
+
 	public static CommandManagerClient getClientManager() {
 		if (commandManagerClient == null) {
 			commandManagerClient = new CommandManagerClient();
-			Fabric.getEventBus().publish(new RegisterCommandEvent.Client(commandManagerClient));
+			clientCommandEvent.post(commandManagerClient);
 		}
 		return commandManagerClient;
 	}
 
 	@Init
 	public void init() {
-		Fabric.getLoadingBus().subscribe(this);
-		//Fabric.getEventBus().subscribe(new CommandTestMod());
+		//CommandTestMod.registerCommands();
 	}
 
 }

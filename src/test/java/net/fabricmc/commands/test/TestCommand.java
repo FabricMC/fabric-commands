@@ -21,8 +21,9 @@ import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.text.TextComponentString;
 import net.minecraft.text.TextFormat;
-import net.minecraft.text.impl.TextComponentString;
+
 
 public class TestCommand extends CommandBase {
 	private final String name;

@@ -16,22 +16,19 @@
 
 package net.fabricmc.commands.test;
 
-import net.fabricmc.api.Hook;
-import net.fabricmc.base.Fabric;
-import net.fabricmc.base.loader.Init;
+
+import net.fabricmc.commands.FabricCommands;
 import net.fabricmc.commands.events.RegisterCommandEvent;
+import net.minecraft.command.CommandManager;
 import net.minecraft.text.TextFormat;
+
+import java.util.function.Consumer;
 
 public class CommandTestMod {
 
-	@Hook(name = "registercommands", before = "", after = "{}")
-	public void registerCommands(RegisterCommandEvent.Server event) {
-		event.getCommandManager().registerCommand(new TestCommand("test", TextFormat.RED));
-	}
-
-	@Hook(name = "registercommandsC", before = "", after = "{}")
-	public void registerCommands(RegisterCommandEvent.Client event) {
-		event.getCommandManager().registerCommand(new TestCommand("ctest", TextFormat.GREEN));
+	public static void registerCommands(){
+		FabricCommands.clientCommandEvent.subscribe(commandManager -> commandManager.registerCommand(new TestCommand("ctest", TextFormat.GREEN)));
+		FabricCommands.serverCommandEvent.subscribe(commandManager -> commandManager.registerCommand(new TestCommand("test", TextFormat.RED)));
 	}
 
 }
