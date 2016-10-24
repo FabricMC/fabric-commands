@@ -16,11 +16,8 @@
 
 package net.fabricmc.commands.mixin.client;
 
-import net.fabricmc.base.Fabric;
 import net.fabricmc.commands.FabricCommands;
-import net.fabricmc.commands.events.RegisterCommandEvent;
 import net.minecraft.client.player.EntityPlayerClient;
-import net.minecraft.command.CommandManager;
 import net.minecraft.command.ICommandManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

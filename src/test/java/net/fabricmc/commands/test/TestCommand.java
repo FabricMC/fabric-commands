@@ -18,12 +18,10 @@ package net.fabricmc.commands.test;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
-import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.text.TextComponentString;
 import net.minecraft.text.TextFormat;
-
 
 public class TestCommand extends CommandBase {
 	private final String name;

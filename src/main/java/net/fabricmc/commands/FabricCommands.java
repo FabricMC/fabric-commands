@@ -18,9 +18,6 @@ package net.fabricmc.commands;
 
 import net.fabricmc.base.loader.Init;
 import net.fabricmc.commands.events.RegisterCommandEvent;
-import net.minecraft.command.CommandManager;
-
-import java.util.function.Consumer;
 
 public class FabricCommands {
 	private static CommandManagerClient commandManagerClient;

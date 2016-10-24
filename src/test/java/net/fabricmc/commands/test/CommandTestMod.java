@@ -16,17 +16,12 @@
 
 package net.fabricmc.commands.test;
 
-
 import net.fabricmc.commands.FabricCommands;
-import net.fabricmc.commands.events.RegisterCommandEvent;
-import net.minecraft.command.CommandManager;
 import net.minecraft.text.TextFormat;
-
-import java.util.function.Consumer;
 
 public class CommandTestMod {
 
-	public static void registerCommands(){
+	public static void registerCommands() {
 		FabricCommands.clientCommandEvent.subscribe(commandManager -> commandManager.registerCommand(new TestCommand("ctest", TextFormat.GREEN)));
 		FabricCommands.serverCommandEvent.subscribe(commandManager -> commandManager.registerCommand(new TestCommand("test", TextFormat.RED)));
 	}

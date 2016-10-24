@@ -16,9 +16,7 @@
 
 package net.fabricmc.commands.mixin.common;
 
-import net.fabricmc.base.Fabric;
 import net.fabricmc.commands.FabricCommands;
-import net.fabricmc.commands.events.RegisterCommandEvent;
 import net.minecraft.command.CommandManager;
 import net.minecraft.command.CommandManagerServer;
 import net.minecraft.command.ICommandManager;

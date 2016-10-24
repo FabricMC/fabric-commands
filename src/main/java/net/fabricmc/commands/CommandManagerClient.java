@@ -22,22 +22,22 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
 
 public class CommandManagerClient extends CommandManager {
-    public boolean tryExecute(ICommandSender sender, String message) {
-        String cmdMessage = message.trim();
-        if (cmdMessage.startsWith("/")) {
-            cmdMessage = cmdMessage.substring(1);
-            String command = cmdMessage.split(" ")[0];
-            if (getRegisteredCommands().containsKey(command)) {
-                executeCommand(sender, message);
-                return true;
-            }
-        }
+	public boolean tryExecute(ICommandSender sender, String message) {
+		String cmdMessage = message.trim();
+		if (cmdMessage.startsWith("/")) {
+			cmdMessage = cmdMessage.substring(1);
+			String command = cmdMessage.split(" ")[0];
+			if (getRegisteredCommands().containsKey(command)) {
+				executeCommand(sender, message);
+				return true;
+			}
+		}
 
-        return false;
-    }
+		return false;
+	}
 
-    @Override
-    public MinecraftServer getServer() {
-        return MinecraftGame.getInstance().getServer();
-    }
+	@Override
+	public MinecraftServer getServer() {
+		return MinecraftGame.getInstance().getServer();
+	}
 }

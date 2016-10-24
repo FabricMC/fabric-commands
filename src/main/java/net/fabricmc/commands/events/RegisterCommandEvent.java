@@ -27,9 +27,9 @@ public abstract class RegisterCommandEvent extends Event.Event1<CommandManager> 
 	/**
 	 * @return the command manager to register the commands with
 	 */
-//	public CommandManager getCommandManager() {
-//		return handlers.get(0).;
-//	}
+	//	public CommandManager getCommandManager() {
+	//		return handlers.get(0).;
+	//	}
 
 	public static class Client extends RegisterCommandEvent {
 
